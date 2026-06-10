@@ -27,8 +27,11 @@ lsb_release -a
 Expected:
 
 ```text
+for wsl
+WSL version: 2.6.3.0
+-
 Ubuntu 22.04 LTS
-Codename: jammy
+Codename: <jammy>
 ```
 
 ---
