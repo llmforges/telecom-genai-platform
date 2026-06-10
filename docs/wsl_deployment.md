@@ -16,23 +16,20 @@ Check WSL version:
 
 ```bash
 wsl --version
+WSL version: 2.6.3.0
 ```
 
 Verify Ubuntu version:
 
 ```bash
-lsb_release -a
+~$ lsb_release -a
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 24.04.3 LTS
+Release:        24.04
+Codename:       noble
 ```
 
-Expected:
-
-```text
-for wsl
-WSL version: 2.6.3.0
--
-Ubuntu 22.04 LTS
-Codename: noble
-```
 
 ---
 
