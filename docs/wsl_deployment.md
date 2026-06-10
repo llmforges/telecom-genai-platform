@@ -31,7 +31,7 @@ for wsl
 WSL version: 2.6.3.0
 -
 Ubuntu 22.04 LTS
-Codename: <jammy>
+Codename: noble
 ```
 
 ---
@@ -41,21 +41,23 @@ Codename: <jammy>
 ```bash
 git --version
 ```
-
+git version 2.43.0
 ---
 
 ## Verify Docker
 
 ```bash
-docker --version
-```
+$ docker --version
+Docker version 29.1.3, build 29.1.3-0ubuntu3~24.04.2```
 
 ---
 
 ## Verify Docker Compose
 
 ```bash
-docker compose version
+~$ docker compose version
+Docker Compose version v5.1.4
+~$
 ```
 
 ---
