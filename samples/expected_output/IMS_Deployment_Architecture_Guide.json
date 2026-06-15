@@ -1,0 +1,104 @@
+{
+    "document": "IMS_Deployment_Architecture_Guide.pdf",
+    "summary": {
+        "nodes": [
+            "S-CSCF",
+            "I-CSCF",
+            "P-CSCF",
+            "HSS"
+        ],
+        "interfaces": [
+            "SIP",
+            "ENUM",
+            "DNS",
+            "Diameter"
+        ],
+        "ports": [
+            "3868",
+            "5060"
+        ]
+    },
+    "dependencies": [
+        {
+            "node": "I-CSCF",
+            "dependencies": [
+                "HSS"
+            ],
+            "text": "I-CSCF, S-CSCF, and HSS."
+        },
+        {
+            "node": "S-CSCF",
+            "dependencies": [
+                "HSS"
+            ],
+            "text": "I-CSCF, S-CSCF, and HSS."
+        },
+        {
+            "node": "P-CSCF",
+            "dependencies": [
+                "SIP",
+                "Diameter",
+                "DNS",
+                "HSS"
+            ],
+            "text": "P-CSCF requires DNS and HSS connectivity. SIP interface must be enabled. Diameter connectivity"
+        },
+        {
+            "node": "HSS",
+            "dependencies": [
+                "SIP",
+                "Diameter",
+                "DNS"
+            ],
+            "text": "P-CSCF requires DNS and HSS connectivity. SIP interface must be enabled. Diameter connectivity"
+        },
+        {
+            "node": "S-CSCF",
+            "dependencies": [
+                "Diameter",
+                "HSS"
+            ],
+            "text": "S-CSCF communicates with HSS using Diameter. Redundancy and HA clustering are mandatory in"
+        },
+        {
+            "node": "HSS",
+            "dependencies": [
+                "Diameter"
+            ],
+            "text": "S-CSCF communicates with HSS using Diameter. Redundancy and HA clustering are mandatory in"
+        },
+        {
+            "node": "HSS",
+            "dependencies": [
+                "DNS"
+            ],
+            "text": "DNS, HSS"
+        }
+    ],
+    "sections": [
+        {
+            "section": "1. Overview",
+            "content": "This document describes the deployment architecture for IMS core components including P-CSCF,\nI-CSCF, S-CSCF, and HSS."
+        },
+        {
+            "section": "2. P-CSCF Deployment",
+            "content": "P-CSCF requires DNS and HSS connectivity. SIP interface must be enabled. Diameter connectivity\nuses port"
+        },
+        {
+            "section": "3868.\n3. S-CSCF Configuration",
+            "content": "S-CSCF communicates with HSS using Diameter. Redundancy and HA clustering are mandatory in\nproduction environments."
+        },
+        {
+            "section": "4. Diameter Interface Requirements",
+            "content": "Diameter interfaces require routing rules, failover handling, and heartbeat timers. TCP and SCTP are\nsupported."
+        },
+        {
+            "section": "5. DNS and ENUM",
+            "content": "ENUM lookup services must be configured before SIP routing activation. DNS failover should support\ngeo-redundancy."
+        },
+        {
+            "section": "6. Deployment Matrix",
+            "content": "Node\nDependency\nPort\nProtocol\nP-CSCF\nDNS, HSS\n3868\nDiameter\nS-CSCF\nHSS\n3868\nDiameter\nI-CSCF\nDNS\n5060\nSIP"
+        }
+    ]
+}
